@@ -1,0 +1,17 @@
+server:
+  port: ${SERVER_PORT:8182}
+
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/postgres}
+    username: ${USER_DB:user}
+    password: ${PASSWORD_DB:password}
+    driver-class-name: org.postgresql.Driver
+  liquibase:
+    change-log: classpath:database_ms_user_changelog.xml
+    driver-class-name: org.postgresql.Driver
+    enabled: ${LIQUIBASE_ENABLED:true}
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    show-sql: false
